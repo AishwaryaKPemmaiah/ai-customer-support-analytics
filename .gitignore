@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Airflow
+airflow.db
+airflow.cfg
+logs/
+__pycache__/
+
+# Azure config
+*.azure/
+*.json
+
+# Secrets
+*.env
+*.pem
+*.key
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Git
+*.swp
+*.swo
