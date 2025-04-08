@@ -42,3 +42,8 @@ Thumbs.db
 # Git
 *.swp
 *.swo
+venv/
+__pycache__/
+*.pyc
+data/
+.env
