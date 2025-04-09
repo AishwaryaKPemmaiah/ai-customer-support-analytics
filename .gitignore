@@ -1,4 +1,4 @@
-# Python
+# Python cache
 __pycache__/
 *.py[cod]
 *.egg
@@ -13,37 +13,35 @@ ENV/
 env/
 .venv/
 
-# Jupyter
+# Jupyter Notebook
 .ipynb_checkpoints/
 
-# VS Code
+# VS Code settings
 .vscode/
 *.code-workspace
 
-# Airflow
+# Airflow metadata and logs
 airflow.db
 airflow.cfg
 logs/
-__pycache__/
 
 # Azure config
 *.azure/
 *.json
 
-# Secrets
-*.env
+# Secrets and keys
+.env
 *.pem
 *.key
 
-# OS Files
+# OS-specific files
 .DS_Store
 Thumbs.db
 
-# Git
+# Git/Vim temporary files
 *.swp
 *.swo
-venv/
-__pycache__/
-*.pyc
-data/
-.env
+
+# Data folders (optional: keep `raw/`, exclude processed/models)
+data/processed/
+data/models/

@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "timestamp": "2025-04-07T13:00:00Z",
+      "ticket_id": "TCK-001",
+      "customer_id": "cust_789",
+      "issue_type": "delivery",
+      "message": "My order hasn’t arrived yet. It was supposed to come yesterday.",
+      "source": "ticket"
+    },
+    {
+      "id": 2,
+      "timestamp": "2025-04-07T14:30:00Z",
+      "ticket_id": "TCK-002",
+      "customer_id": "cust_987",
+      "issue_type": "refund",
+      "message": "I returned the product last week, but haven’t received a refund.",
+      "source": "ticket"
+    }
+  ]
+  

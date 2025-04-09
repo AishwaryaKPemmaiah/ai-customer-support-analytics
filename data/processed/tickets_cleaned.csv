@@ -1,0 +1,3 @@
+id,timestamp,ticket_id,customer_id,issue_type,message,source,cleaned_message
+1,2025-04-07T13:00:00Z,TCK-001,cust_789,delivery,My order hasn’t arrived yet. It was supposed to come yesterday.,ticket,order arrive suppose come yesterday
+2,2025-04-07T14:30:00Z,TCK-002,cust_987,refund,"I returned the product last week, but haven’t received a refund.",ticket,return product week receive refund

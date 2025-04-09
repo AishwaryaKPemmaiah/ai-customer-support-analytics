@@ -1,0 +1,3 @@
+id,timestamp,user_id,agent,message,source,cleaned_message
+1,2025-04-07T11:20:00Z,user_123,AgentA,Billing error on my last invoice. Need clarification.,chat,billing error invoice need clarification
+2,2025-04-07T12:05:00Z,user_456,AgentB,Is there a way to upgrade my plan?,chat,way upgrade plan

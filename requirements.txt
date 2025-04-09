@@ -1,0 +1,7 @@
+spacy
+nltk
+pandas
+scikit-learn
+azureml-sdk
+apache-airflow
+pyyaml

@@ -1,0 +1,19 @@
+[
+    {
+      "id": 1,
+      "timestamp": "2025-04-07T11:20:00Z",
+      "user_id": "user_123",
+      "agent": "AgentA",
+      "message": "Billing error on my last invoice. Need clarification.",
+      "source": "chat"
+    },
+    {
+      "id": 2,
+      "timestamp": "2025-04-07T12:05:00Z",
+      "user_id": "user_456",
+      "agent": "AgentB",
+      "message": "Is there a way to upgrade my plan?",
+      "source": "chat"
+    }
+  ]
+  

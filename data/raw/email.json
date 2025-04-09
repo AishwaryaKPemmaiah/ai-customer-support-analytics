@@ -1,0 +1,19 @@
+[
+    {
+      "id": 1,
+      "timestamp": "2025-04-07T09:15:00Z",
+      "sender": "john.doe@example.com",
+      "subject": "Login Issue",
+      "message": "I can't log into my account. Please help asap!",
+      "source": "email"
+    },
+    {
+      "id": 2,
+      "timestamp": "2025-04-07T10:45:00Z",
+      "sender": "jane.smith@example.com",
+      "subject": "Password Reset",
+      "message": "I forgot my password and the reset link isn't working.",
+      "source": "email"
+    }
+  ]
+  
