@@ -25,7 +25,7 @@ def run_pipeline():
     logger.info(f"[DEBUG] ner_results: {len(ner_results) if ner_results else 'None'}")
 
     print("Step 4: Intent Classification...")
-    intent_classifier.train_intent_classifier()  # just train
+    intent_classifier.run_intent_classification()  # just train
     run_intent_results = intent_classifier.run_intent_classification()  # returns prediction results
     logger.info(f"[DEBUG] intent_run: {len(run_intent_results)}")
 
