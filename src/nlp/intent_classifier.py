@@ -1,36 +1,39 @@
-# src/nlp/intent_classifier.py
-
-import pandas as pd
 import os
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import LogisticRegression
-import joblib
+import pandas as pd
+from src.azure_ml.train_model import train_and_save_model
+
+from src.azure_ml.predict_intent import predict_intent  # this should already use the trained model
+from src.utils.logger import get_logger
+
+logger = get_logger("IntentClassifier")
 
 PROCESSED_PATH = "data/processed"
-MODEL_PATH = "data/models"
 
 def train_intent_classifier():
-    # Example labeled data (in real cases, you'll use a labeled dataset)
-    data = [
-        ("I can't log in", "login_issue"),
-        ("Need to reset password", "password_reset"),
-        ("Where's my order?", "order_tracking"),
-        ("Billing error in invoice", "billing_issue"),
-        ("How to cancel order?", "cancel_order")
+    # Train and save model
+    train_and_save_model()
+
+    results = []
+
+    files = [
+        "email_cleaned_sentiment.csv",
+        "chat_logs_cleaned_sentiment.csv",
+        "tickets_cleaned_sentiment.csv"
     ]
-    df = pd.DataFrame(data, columns=["text", "intent"])
 
-    vectorizer = TfidfVectorizer()
-    X = vectorizer.fit_transform(df["text"])
-    y = df["intent"]
+    for file in files:
+        input_path = os.path.join(PROCESSED_PATH, file)
+        df = pd.read_csv(input_path)
 
-    clf = LogisticRegression()
-    clf.fit(X, y)
+        # Predict intents for each cleaned message
+        intents = [predict_intent(text) for text in df["cleaned_message"]]
+        df["intent"] = intents
+        results.extend(intents)  # collect intents in flat list
 
-    os.makedirs(MODEL_PATH, exist_ok=True)
-    joblib.dump(clf, f"{MODEL_PATH}/intent_model.pkl")
-    joblib.dump(vectorizer, f"{MODEL_PATH}/intent_vectorizer.pkl")
-    print("[✅] Intent classifier trained and saved.")
+        # Save new file with intent
+        output_path = input_path.replace(".csv", "_intent.csv")
+        df.to_csv(output_path, index=False)
+        logger.info(f"[✅] Saved with intent: {os.path.basename(output_path)}")
+        logger.info(df.head(2).to_string(index=False))
 
-if __name__ == "__main__":
-    train_intent_classifier()
+    return results

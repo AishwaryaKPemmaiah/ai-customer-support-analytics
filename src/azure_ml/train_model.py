@@ -6,7 +6,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-# ✅ Corrected paths
+# Paths
 PROCESSED_DATA_PATH = "data/processed"
 MODEL_DIR = "data/models"
 MODEL_PATH = os.path.join(MODEL_DIR, "intent_classifier.pkl")
@@ -23,12 +23,14 @@ def train_model(X, y):
     pipeline.fit(X, y)
     return pipeline
 
-if __name__ == "__main__":
-    # ✅ Ensure model directory exists
+# ✅ This is the reusable function you can import elsewhere
+def train_and_save_model():
     os.makedirs(MODEL_DIR, exist_ok=True)
-    
     X, y = load_data()
     model = train_model(X, y)
     joblib.dump(model, MODEL_PATH)
-    
     print(f"[✅] Model trained and saved at {MODEL_PATH}")
+
+# ✅ For standalone script execution
+if __name__ == "__main__":
+    train_and_save_model()

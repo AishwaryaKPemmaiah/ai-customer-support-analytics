@@ -19,13 +19,20 @@ def detect_urgency(text):
 def process_urgency(filename):
     df = pd.read_csv(os.path.join(PROCESSED_PATH, filename))
     df["urgency"] = df["cleaned_message"].apply(detect_urgency)
-    
+
     out_file = filename.replace(".csv", "_urgency.csv")
     df.to_csv(os.path.join(PROCESSED_PATH, out_file), index=False)
     print(f"[✅] Saved with urgency: {out_file}")
     print(df.head())
+    return df  # ✅ Return the DataFrame for further use
 
-if __name__ == "__main__":
+def run():
+    results = []
     files = ['email_cleaned_sentiment.csv', 'chat_logs_cleaned_sentiment.csv', 'tickets_cleaned_sentiment.csv']
     for file in files:
-        process_urgency(file)
+        df = process_urgency(file)
+        results.extend(df["urgency"].tolist())
+    return results  # ✅ Return all urgency labels as a list
+
+if __name__ == "__main__":
+    run()
